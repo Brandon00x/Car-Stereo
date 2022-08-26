@@ -1,0 +1,233 @@
+// MAIN APP
+
+.ResultGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.5rem;
+}
+
+.play {
+  height: 2rem;
+  width: 11rem;
+}
+
+.row-button {
+  position: relative;
+  padding-top: 15px;
+  padding-left: 21px;
+}
+
+.searchresultscontainer {
+  text-align: left;
+  width: 800px;
+  height: 425px;
+  padding-left: 67px;
+  padding-top: 7px;
+}
+
+.videoPlaying {
+  display: flex;
+  float: left;
+  padding-top: 5px;
+  text-align: left;
+  color: white;
+  width: 778px;
+  padding-left: 12px;
+  height: 35px;
+  overflow: hidden;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+// MAIN SEARCH SCREEN
+.videoPlayingSearchButton {
+  width: 100px;
+  height: 31px !important;
+  border-radius: 40px;
+}
+
+.searchInputDivYoutube {
+  color: white;
+}
+
+.searchInputSpan {
+  color: rgb(255, 0, 0);
+}
+
+.searchInputTitle {
+  height: 39px;
+}
+
+.searchFormYouTube {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 350px;
+    height: 38px;
+    border-radius: 40px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translate(-50%, -50%);
+    background: #fff;
+    transition: all 0.3s ease;
+    z-index: 1;
+    &.focus {
+      box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.searchBoxInputYoutube {
+  width: 264px;
+  height: 32px;
+  left: 9px;
+  top: 8%;
+  position: absolute;
+  border: none;
+  appearance: none;
+  outline: none;
+}
+
+.searchInputIconYoutube {
+  position: absolute;
+  width: 30px;
+  left: 316px;
+  top: 4px;
+  z-index: 99;
+  height: 30px;
+}
+
+.googleAssistantButtonYouTube {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 276px;
+  top: 4px;
+  z-index: 99;
+}
+
+.searchInputYoutubeButton {
+  border-radius: 40px;
+}
+
+.initial-load {
+  margin-top: 6.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.is-searching {
+  margin-top: 6.7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searchResultsBackButton {
+  position: absolute;
+  width: 53px;
+  right: 707px;
+  top: 68px;
+  z-index: 99;
+  height: 41px;
+}
+
+.searchResultsSearchAgain {
+  position: absolute;
+  width: 30px;
+  left: 3px;
+  top: 63px;
+  z-index: 99;
+  height: 50px;
+}
+
+.YoutubeKeyboard {
+  display: flex;
+  padding-top: .6rem;
+}
+
+// SEARCH RESULTS
+$white: #ffffff;
+$black: #000000;
+$grey: #dadbdb;
+
+// *,
+// *:before,
+// *:after {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+// }
+
+.-card {
+  width: 100%;
+  background-color: black;
+
+  @media only screen and (min-width: 600px) {
+    margin: 0 16px -17px;
+    width: calc(30% - 38px);
+    height: 230px;
+
+    &:last-child:after {
+      content: "";
+      display: block;
+      width: calc(25% - 15px);
+    }
+  }
+
+  .-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: block;
+    overflow: hidden;
+    padding-top: 56.3%;
+    position: relative;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+
+    .image {
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: scale(1, 1);
+      transition-property: transform, filter;
+      transition-duration: 0.3s;
+      transition-timing-function: cubic-bezier(0.57, 0.21, 0.69, 1);
+    }
+
+    &:hover .image {
+      transform: scale(1.05, 1.05);
+      transition-property: transform, filter;
+      transition-duration: 0.3s;
+      transition-timing-function: cubic-bezier(0.57, 0.21, 0.69, 1);
+    }
+  }
+
+  .-bottom {
+    background-image: linear-gradient(320deg, #04021a, #002c59);
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    min-height: 93px;
+    opacity: 0.8;
+    padding: 5px 11px;
+    overflow: hidden;
+
+    .title {
+      font-size: 1.1rem !important;
+      width: 175px;
+      height: 45px;
+      overflow: hidden;
+
+      @media only screen and (min-width: 600px) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

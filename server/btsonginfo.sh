@@ -1,0 +1,2 @@
+#!/bin/bash
+dbus-send --system --type=method_call --print-reply --dest=org.bluez /org/bluez/hci0/dev_A8_34_6A_31_CC_E7/player0 org.freedesktop.DBus.Properties.Get string:org.bluez.MediaPlayer1 string:Track | tee trackinfo.txt

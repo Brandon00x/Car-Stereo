@@ -1,0 +1,311 @@
+.btMusicContainer {
+  width: 800px;
+  height: 430px;
+}
+
+.btMusicBottom {
+  background-image: linear-gradient(-90deg, rgb(0 0 0), rgb(0, 44, 89));
+}
+
+.btPairButton {
+  border-radius: 10px;
+  color: white;
+  background-color: rgb(0, 44, 89);
+  margin-right: 10px;
+}
+
+.btdevicelist {
+  border: none;
+  color: white;
+  background: none;
+  margin-top: 10px;
+  margin-left: 5px;
+  width: 204px;
+}
+
+.btdevicecardtitle {
+  margin-left: -10px;
+  margin-top: 2px;
+  color: goldenrod;
+  text-align: center;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.btScanTime {
+  color: goldenrod;
+  position: absolute;
+  top: 22.3%;
+  right: 20%;
+}
+
+.btdevicecard {
+  color: white;
+  position: absolute;
+  display: flex;
+  width: 300px;
+  max-width: 300px;
+  max-height: 250px;
+  word-wrap: break-word;
+  background-image: linear-gradient(-90deg, rgb(0 0 0), rgb(0, 44, 89));
+  background-clip: border-box;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 0.25rem;
+  right: 10%;
+  top: 15%;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.music_player {
+  position: relative;
+  margin: 0 auto;
+  background-image: linear-gradient(-90deg, rgb(0 0 0), rgb(0, 44, 89));
+  height: 433px;
+  width: 800px;
+  -webkit-box-shadow: 10px 0px 20px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 7px 20px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 0px 20px -6px rgba(0, 0, 0, 0.75);
+  .artist_img {
+    img {
+      width: 350px;
+      height: 350px;
+      margin-top: 25px;
+      margin-left: 20px;
+    }
+  }
+  .time_slider {
+    display: flex;
+    height: 3.5rem;
+    width: 400px;
+    position: absolute;
+    bottom: 0;
+    margin-left: -10px;
+    span {
+      position: absolute;
+      font-size: 12px;
+      top: 0.75rem;
+      padding-top: 10px;
+    }
+    .runing_time {
+      left: 2rem;
+      color: goldenrod;
+      font-size: 15px;
+    }
+    .song_long {
+      right: 2rem;
+      color: goldenrod;
+      font-size: 15px;
+    }
+  }
+  .controllers {
+    display: flex;
+    padding-top: 10px;
+    height: 3.5rem;
+    width: 410px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    color: #ffffff;
+    justify-content: center;
+    .btnext {
+      position: relative;
+      //Top right bot left
+      padding: 0 20px 0 20px;
+      transform: rotate(180deg);
+      height: 30px;
+    }
+    .btplay {
+      position: relative;
+      padding: 0 20px 0 20px;
+      height: 30px;
+    }
+    .btvolume {
+      position: relative;
+      padding: 0 20px 0 20px;
+      height: 30px;
+    }
+    .btprev {
+      position: relative;
+      padding: 0 20px 0 20px;
+      height: 30px;
+    }
+    .btsettings {
+      position: relative;
+      padding: 0 20px 0 20px;
+      height: 35px;
+    }
+  }
+  .now_playing {
+    top: 0;
+    right: 0;
+    height: 2.5rem;
+    width: 800px;
+    position: absolute;
+    background-image: linear-gradient(-90deg, rgb(0 0 0), rgb(0, 44, 89));
+    text-align: center;
+    color: white;
+    p {
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+  }
+}
+.music_info {
+  right: -47%;
+  bottom: 65%;
+  position: relative;
+  width: 400px;
+  h2 {
+    color: goldenrod;
+    text-align: center;
+    font-size: 35px;
+    text-transform: uppercase;
+    overflow: hidden;
+    max-height: 130px;
+  }
+  p {
+    text-align: center;
+  }
+  .btalbum {
+    color: aqua;
+    font-weight: bold;
+    font-size: 14px !important;
+    margin-top: 10px;
+    overflow: hidden;
+    max-height: 55px;
+  }
+  .song_title {
+    color: goldenrod;
+    font-size: 20px !important;
+    margin-top: 10px;
+    max-height: 55px;
+    overflow: hidden;
+  }
+}
+
+// Volume Slider
+.btVolumeSlider[type="range"] {
+  -webkit-appearance: none;
+  transform: rotate(270deg) translateY(-50%);
+  margin-top: 200px; /* 50% of the width because of the transformation */
+  width: 150px;
+  height: 5px;
+  outline: none;
+  position: absolute;
+  bottom: 220%;
+  right: 67%;
+}
+
+.btVolumeSlider[type="range"]::-webkit-slider-runnable-track {
+  background: goldenrod /* ...change color with background property... */;
+  /* ...my custom edits...*/
+}
+
+.btVolumeSlider[type="range"]:hover::-webkit-slider-runnable-track {
+  background: goldenrod /* ...change color with background property... */;
+  /* ...my custom edits... */
+}
+
+.btVolumeSlider[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 5px; /* ..manually set height greater than 0... */
+  width: 20px; /* ..manually set width greater than 0... */
+  background: blue /* ...change color with background property... */;
+  /* ...my custom edits... */
+}
+
+.btVolumeSlider[type="range"]:hover::-webkit-slider-thumb {
+  //background: blue /* ...change color with background property... */;
+  /* ...my custom edits... */
+}
+//End Vol Slider
+
+// Music Slider
+.btMusicPlaybackTime[type="range"] {
+  -webkit-appearance: none;
+  border-radius: 2px;
+  width: 14rem;
+  top: 1rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  margin-top: 15px;
+}
+
+.btMusicPlaybackTime[type="range"]::-webkit-slider-runnable-track {
+  width: 300px;
+  height: 5px;
+  background: goldenrod;
+  border: none;
+  border-radius: 3px;
+}
+.btMusicPlaybackTime[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 6px;
+  width: 16px;
+  background: #0f40e0;
+}
+.btMusicPlaybackTime[type="range"]:focus {
+  outline: none;
+}
+.btMusicPlaybackTime[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #8664a1;
+}
+
+.btMusicPlaybackTime[type="range"]::-moz-range-track {
+  width: 300px;
+  height: 5px;
+  background: #8664a1;
+  border: none;
+  border-radius: 3px;
+}
+.btMusicPlaybackTime[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  border: 3px solid #fff;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: #9200ff;
+  margin-top: -4px;
+}
+.btMusicPlaybackTime[type="range"]:-moz-focusring {
+  outline: 1px solid white;
+  outline-offset: -1px;
+}
+
+.btMusicPlaybackTime[type="range"]::-ms-track {
+  width: 300px;
+  height: 5px;
+  background: transparent;
+  border-color: transparent;
+  border-width: 6px 0;
+  color: transparent;
+}
+.btMusicPlaybackTime[type="range"]::-ms-fill-lower {
+  background: #777;
+  border-radius: 10px;
+}
+.btMusicPlaybackTime[type="range"]::-ms-fill-upper {
+  background: #ddd;
+  border-radius: 10px;
+}
+.btMusicPlaybackTime[type="range"]::-ms-thumb {
+  border: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: goldenrod;
+}
+.btMusicPlaybackTime[type="range"]:focus::-ms-fill-lower {
+  background: #888;
+}
+.btMusicPlaybackTime[type="range"]:focus::-ms-fill-upper {
+  background: #ccc;
+}

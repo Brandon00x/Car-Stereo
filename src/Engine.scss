@@ -1,0 +1,137 @@
+@use "sass:math";
+
+.gauge-background {
+  $chart-size: 200px;
+  $chart-padding: 100px;
+  $label-width: 160px;
+
+  background-color: black;
+  width: $chart-size + $chart-padding;
+  height: $chart-size + $chart-padding;
+  font-family: "Open Sans", sans-serif;
+
+  .label {
+    position: absolute;
+    text-align: right;
+    font-weight: bold;
+    width: $label-width;
+  }
+
+  .multiple-gauge {
+    position: absolute;
+    width: $chart-size;
+    height: $chart-size;
+    right: 11%;
+    top: 50%;
+    .label {
+      text-align: left;
+      left: 60%;
+    }
+  }
+
+  .multiple-gauge2 {
+    position: absolute;
+    width: $chart-size;
+    height: $chart-size;
+    left: 6%;
+    top: 50%;
+    .label {
+      text-align: left;
+      position: absolute;
+      left: 60%;
+    }
+  }
+
+  .multiple-gauge3 {
+    position: absolute;
+    width: $chart-size;
+    height: $chart-size;
+    left: 36%;
+    top: 15%;
+    .label {
+      position: absolute;
+      left: 60%;
+      text-align: left;
+    }
+  }
+
+  .engineTitle {
+    position: absolute;
+    top: 15%;
+    left: 1%;
+    color: #8067dc;
+  }
+
+  .engineTitletext {
+    font-size: 30px;
+  }
+}
+
+.engineMphLabel {
+  position: absolute;
+  top: 49.5%;
+  right: 40%;
+  color: #6870db;
+}
+.engineRpmLabel {
+  position: absolute;
+  top: 53.2%;
+  right: 39%;
+  color: #8067dc;
+}
+.engineTorqueLabel {
+  position: absolute;
+  top: 46%;
+  right: 37.5%;
+  color: #6894dd;
+}
+
+.engineOilTempLabel {
+  position: absolute;
+  color: #8067dc;
+  top: 88.4%;
+  left: 30%;
+}
+.engineAirIntakeTempLabel {
+  position: absolute;
+  color: #6794dc;
+  top: 81%;
+  left: 36.5%;
+}
+.engineAirSensorTempLabel {
+  position: absolute;
+  color: #66b7dc;
+  top: 77%;
+  left: 34.5%;
+}
+.engineCoolantTempLabel {
+  position: absolute;
+  color: #6770db;
+  top: 84.8%;
+  left: 34.8%;
+}
+
+.engineFuelPressureLabel {
+  position: absolute;
+  color: #8067dc;
+  top: 88.4%;
+  left: 92.8%;
+}
+.engineAlchPctLabel {
+  position: absolute;
+  color: #6770db;
+  top: 84.7%;
+  left: 95%;
+}
+.engineFuelRateLabel {
+  position: absolute;
+  color: #6794dc;
+  top: 80.9%;
+  left: 89%;
+}
+.engineMapLabel {
+  position: absolute;
+  color: #64b3d6;
+  top: 77%;
+  left: 94.8%;
+}

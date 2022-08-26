@@ -1,0 +1,1 @@
+chromium-browser --start-fullscreen -start-maximized http://localhost:3000

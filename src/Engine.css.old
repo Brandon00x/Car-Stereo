@@ -1,0 +1,117 @@
+/* Gauge Container */
+.gauge-container {
+  width: 159px;
+  height: 128px;
+  display: block;
+  float: left;
+  padding: 10px;
+  background-color: #222;
+  margin: 7px;
+  border-radius: 3px;
+  position: relative;
+}
+.gauge-container-big {
+  width: 250px;
+  height: 200px;
+  display: block;
+  float: left;
+  padding: 10px;
+  background-color: #222;
+  margin: 7px;
+  border-radius: 3px;
+  position: relative;
+}
+.gauge-col-big {
+  margin-top: 5px;
+  width: 300px;
+  height: 430px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+}
+
+.gauge-col-small-one {
+  position: absolute;
+  margin-top: 5px;
+  padding-left: 10px;
+  width: 200px;
+  height: 430px;
+  top: 10%;
+  left: 34%;
+}
+.gauge-col-small-two {
+  position: absolute;
+  margin-top: 5px;
+  padding-left: 10px;
+  width: 200px;
+  height: 430px;
+  top: 10%;
+  left: 55%;
+}
+.gauge-col-small-three {
+  position: absolute;
+  margin-top: 5px;
+  padding-left: 10px;
+  width: 200px;
+  height: 430px;
+  top: 10%;
+  left: 76%;
+}
+
+.gauge-container > .engineLabel {
+  position: absolute;
+  width: 160px;
+  left: 0;
+  bottom: 0;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  font-family: monospace;
+  font-size: 0.8em;
+  padding: 5px 10px;
+  color: white;
+}
+.gauge-container > .engineValue {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  font-family: monospace;
+  font-size: 0.8em;
+  padding: 5px 10px;
+  color: white;
+}
+.gauge-container-big > .engineLabelBig {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  font-family: monospace;
+  font-size: 0.8em;
+  padding: 5px 10px;
+  color: white;
+}
+.gauge-container-big > .engineValueBig {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  font-family: monospace;
+  font-size: 0.8em;
+  padding: 5px 10px;
+  color: white;
+}
+
+/* Gauge Styling */
+.defaultGauge {
+  width: 180px !important;
+  box-sizing: none !important;
+  margin-left: -23px;
+  margin-top: 10px;
+}
+.text-group {
+  display: none !important;
+}

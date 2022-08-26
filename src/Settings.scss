@@ -1,0 +1,180 @@
+.settingsindex {
+  width: 475px;
+  height: 431px;
+  overflow: scroll;
+  flex: none !important;
+}
+.settingsindex::-webkit-scrollbar {
+  display: none;
+}
+
+.settingsTitle {
+  width: 390px;
+}
+
+.settingsindex ul {
+  padding-left: 10px !important;
+}
+
+.settingsindex li {
+  display: flex;
+  margin-top: 10px;
+  list-style: none;
+  color: white;
+  font-size: 20px;
+  background-color: #002c59;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 450px;
+  height: 50px;
+  transition: 0.3s box-shadow;
+  text-decoration: none;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.settingsindex li:hover {
+  box-shadow: 0px 0px 10px #010101;
+}
+
+.settingsDescription {
+  color: gray;
+}
+
+.settingsContainer {
+  margin-left: 1px !important;
+  padding-left: 1px !important;
+  display: flex;
+  max-width: 780px !important;
+  margin-right: 10px !important;
+  padding-right: 10px !important;
+}
+
+//Side Settings
+.settingsSideTitle {
+  margin-left: 7px;
+}
+
+.settingsSubTitle {
+  margin-left: 7px;
+}
+
+.settingssidecontent {
+  color: white;
+  border: none;
+  background: none;
+  margin-top: 10px;
+  margin-left: 5px;
+  width: 204px;
+}
+
+.settingsConnectButton {
+  border-radius: 10px;
+  color: white;
+  background-color: rgb(0, 44, 89);
+  margin-right: 10px;
+}
+
+.settingsSideCard {
+  height: fit-content;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex: none !important;
+  color: white;
+  width: 320px;
+  max-width: 300px;
+  max-height: 380px;
+  overflow: scroll;
+  background-image: linear-gradient(-90deg, rgb(0 0 0), rgb(0, 44, 89));
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 20px !important;
+  flex-wrap: nowrap;
+}
+.settingsSideCard::-webkit-scrollbar {
+  display: none;
+}
+
+//Vol Slider
+.settingsSpeedVolSlider {
+  margin-top: 0 !important;
+  width: 275px;
+  margin-left: 10px;
+}
+
+//Lock Properties
+.settingsLockProperty {
+  height: 38px;
+  width: 300px;
+}
+
+//GPS
+.settingsGPSSideContent {
+  margin-left: 10px;
+}
+
+/* Toggle Box  */
+
+.switch {
+  text-align: right;
+  position: relative;
+  width: 60px;
+  height: 34px;
+  right: 0%;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  padding-left: 10px;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: gray;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}

@@ -1,0 +1,1 @@
+hostname -I | tee ip.txt

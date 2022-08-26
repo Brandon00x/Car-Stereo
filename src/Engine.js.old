@@ -1,0 +1,365 @@
+import React, { Component } from "react";
+import GaugeChart from "react-gauge-chart";
+import "./Engine.css";
+const axios = require("axios");
+
+export default class Engine extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      vss: 0, //Speed MPH
+      rpm: 0, //RPM
+      frp: 0, // Fuel Pressure
+      alchpct: 0, //Ethanol %
+      enginefrate: 0, //Engine Fuel Rate
+      engineoilt: 0, //Engine Oil Temp
+      ect: 0, //Engine Coolant Temp,
+      iat: 0, //Intake Air Temp
+      aet: 0, //Engine Percent Torque
+      map: 0, //Intake Manifold Absolute Pressure,
+      maf: 0, //Airflow From Mass Air Sensor,
+
+      delay: 500,
+    };
+    this.readEngineData = this.readEngineData.bind(this);
+    this.setEngineData = this.setEngineData.bind(this);
+    this.stopEngineRead = this.stopEngineRead.bind(this);
+    this.tick = this.tick.bind(this);
+  }
+
+  componentDidMount() {
+    this.readEngineData();
+  }
+
+  componentWillUnmount() {
+    this.stopEngineRead();
+  }
+
+  tick() {
+    this.readEngineData();
+  }
+
+  async readEngineData() {
+    let res = await fetch("http://localhost:3224");
+    let reader = res.body.getReader();
+    let result;
+    let decoder = new TextDecoder("utf8");
+    while (!result?.done) {
+      result = await reader.read();
+      let chunk = decoder.decode(result.value);
+      console.log("Data: ", chunk);
+      let strConvert = chunk
+        .replace('"mode:"', " mode: ")
+        .replace('"pid:"', "pid: ")
+        .replace('"name:"', "name: ")
+        .replace('"value:"', "value: ");
+
+      let dataObj = JSON.parse(strConvert);
+      this.setEngineData(dataObj);
+    }
+  }
+
+  setEngineData(data) {
+    if (data.name === "iat") {
+      this.iat = (data.value - -40) / (215 - -40);
+      this.setState({
+        airIntakeTemp: this.iat,
+      });
+    } else if (data.name === "vss") {
+      this.vss = (data.value - 0) / (120 - 0);
+      this.setState({
+        vss: this.vss,
+      });
+    } else if (data.name === "rpm") {
+      this.rpm = (data.value - 0) / (7000 - 0);
+      this.setState({
+        rpm: this.rpm,
+      });
+    } else if (data.name === "frp") {
+      this.frp = (data.value - 0) / (765 - 0);
+      this.setState({
+        frp: this.frp,
+      });
+    } else if (data.name === "alchpct") {
+      this.alchpct = (data.value - 0) / (100 - 0);
+      this.setState({
+        alchpct: this.alchpct,
+      });
+    } else if (data.name === "enginefrate") {
+      this.enginefrate = (data.value - 0) / (100 - 0);
+      this.setState({
+        enginefrate: this.enginefrate,
+      });
+    } else if (data.name === "engineoilt") {
+      this.engineoilt = (data.value - -40) / (210 - 0);
+      this.setState({
+        engineoilt: this.engineoilt,
+      });
+    } else if (data.name === "ect") {
+      this.ect = (data.value - -40) / (215 - 0);
+      this.setState({
+        ect: this.ect,
+      });
+    } else if (data.name === "aet") {
+      this.aet = (data.value - -125) / (125 - 0);
+      this.setState({
+        aet: this.aet,
+      });
+    } else if (data.name === "map") {
+      this.map = (data.value - 0) / (255 - 0);
+      this.setState({
+        map: this.map,
+      });
+    } else if (data.name === "maf") {
+      this.maf = (data.value - 0) / (655 - 0);
+      this.setState({
+        maf: this.maf,
+      });
+    }
+  }
+
+  stopEngineRead() {
+    try {
+      axios.get("http://localhost:3224", "end");
+    } catch (err) {
+      console.log("Error Stopping Stream: ", err);
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="gauge-col-big">
+          <div className="gauge-container-big">
+            <GaugeChart
+              id="enginevss"
+              className="bigGauge"
+              nrOfLevels={2}
+              arcsLength={[1]}
+              arcWidth={0.2}
+              cornerRadius={0}
+              colors={["#038e42"]}
+              percent={this.state.vss}
+              arcPadding={-0.01}
+              needleColor={"#ee2326"}
+              needleBaseColor={"#ee2326"}
+              animate={false}
+              style={{
+                width: "390px",
+                height: "300px",
+                marginLeft: "-79px",
+                marginTop: "20px",
+              }}
+            />
+            <span className="engineLabelBig">Miles / Hour</span>
+            <span className="engineValueBig">50 vss</span>
+          </div>
+          <div className="gauge-container-big">
+            <GaugeChart
+              id="enginerpm"
+              className="f"
+              nrOfLevels={2}
+              arcsLength={[0.9, 0.1]}
+              arcWidth={0.2}
+              cornerRadius={0}
+              colors={["#038e42", "#ee2326"]}
+              percent={this.state.rpm}
+              arcPadding={-0.01}
+              needleColor={"#ee2326"}
+              needleBaseColor={"#ee2326"}
+              animate={false}
+              style={{
+                width: "390px",
+                height: "300px",
+                marginLeft: "-79px",
+                marginTop: "20px",
+              }}
+            />
+            <span className="engineLabelBig">RPM</span>
+            <span className="engineValueBig">6000</span>
+          </div>
+        </div>
+
+        <div className="gauge-col-small-three">
+          <div className="wrapper">
+            <div className="gauge-container">
+              <GaugeChart
+                className="defaultGauge"
+                nrOfLevels={2}
+                arcsLength={[0.35, 0.25, 0.4]}
+                arcWidth={0.2}
+                cornerRadius={0}
+                colors={["#ee2326", "#038e42", "#ee2326"]}
+                percent={this.state.frp}
+                arcPadding={-0.01}
+                needleColor={"#ee2326"}
+                needleBaseColor={"#ee2326"}
+                animate={false}
+              />
+              <span className="engineLabel">Fuel Pressure</span>
+              <span className="engineValue">39 PSI</span>
+            </div>
+          </div>
+          <div className="wrapper">
+            <div className="gauge-container">
+              <GaugeChart
+                className="defaultGauge"
+                nrOfLevels={2}
+                arcsLength={[0.86, 0.12, 0.02]}
+                arcWidth={0.2}
+                cornerRadius={0}
+                colors={["#ee2326", "#038e42", "#ee2326"]}
+                percent={this.state.alchpct}
+                arcPadding={-0.01}
+                needleColor={"#ee2326"}
+                needleBaseColor={"#ee2326"}
+                animate={false}
+              />
+              <span className="engineLabel">Ethanol Percent</span>
+              <span className="engineValue">93%</span>
+            </div>
+          </div>
+          <div className="wrapper">
+            <div className="gauge-container">
+              <GaugeChart
+                className="defaultGauge"
+                nrOfLevels={2}
+                arcsLength={[0.85, 0.15]}
+                arcWidth={0.2}
+                cornerRadius={0}
+                colors={["#038e42", "#ee2326"]}
+                percent={this.state.enginefrate}
+                arcPadding={-0.01}
+                needleColor={"#ee2326"}
+                needleBaseColor={"#ee2326"}
+                animate={false}
+              />
+              <span className="engineLabel">Fuel Consumption</span>
+              <span className="engineValue">10 L/H</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="gauge-col-small-two">
+          <div className="wrapper">
+            <div className="gauge-container">
+              <GaugeChart
+                className="defaultGauge"
+                nrOfLevels={2}
+                arcsLength={[0.1, 0.7, 0.2]}
+                arcWidth={0.2}
+                cornerRadius={0}
+                colors={["#bfb004", "#038e42", "#ee2326"]}
+                percent={this.state.engineoilt}
+                arcPadding={-0.01}
+                needleColor={"#ee2326"}
+                needleBaseColor={"#ee2326"}
+                animate={false}
+              />
+              <span className="engineLabel">Oil Temp</span>
+              <span className="engineValue">200 C</span>
+            </div>
+          </div>
+          <div className="wrapper">
+            <div className="gauge-container">
+              <GaugeChart
+                className="defaultGauge"
+                nrOfLevels={2}
+                arcsLength={[0.85, 0.15]}
+                arcWidth={0.2}
+                cornerRadius={0}
+                colors={["#038e42", "#ee2326"]}
+                percent={this.state.ect}
+                arcPadding={-0.01}
+                needleColor={"#ee2326"}
+                needleBaseColor={"#ee2326"}
+                animate={false}
+              />
+              <span className="engineLabel">Coolant Temp</span>
+              <span className="engineValue">120 C</span>
+            </div>
+          </div>
+          <div className="wrapper">
+            <div className="gauge-container">
+              <GaugeChart
+                className="defaultGauge"
+                nrOfLevels={2}
+                arcsLength={[0.85, 0.15]}
+                arcWidth={0.2}
+                cornerRadius={0}
+                colors={["#038e42", "#ee2326"]}
+                percent={this.state.iat}
+                arcPadding={-0.01}
+                needleColor={"#ee2326"}
+                needleBaseColor={"#ee2326"}
+                animate={false}
+              />
+              <span className="engineLabel">Air Intake Temp</span>
+              <span className="engineValue">120 C</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="gauge-col-small-one">
+          <div className="wrapper">
+            <div className="gauge-container">
+              <GaugeChart
+                className="defaultGauge"
+                nrOfLevels={2}
+                arcsLength={[0.9, 0.1]}
+                arcWidth={0.2}
+                cornerRadius={0}
+                colors={["#038e42", "#ee2326"]}
+                percent={this.state.aet}
+                arcPadding={-0.01}
+                needleColor={"#ee2326"}
+                needleBaseColor={"#ee2326"}
+                animate={false}
+              />
+              <span className="engineLabel">Torque</span>
+              <span className="engineValue">70%</span>
+            </div>
+          </div>
+          <div className="wrapper">
+            <div className="gauge-container">
+              <GaugeChart
+                className="defaultGauge"
+                nrOfLevels={2}
+                arcsLength={[0.85, 0.15]}
+                arcWidth={0.2}
+                cornerRadius={0}
+                colors={["#038e42", "#ee2326"]}
+                percent={this.state.map}
+                arcPadding={-0.01}
+                needleColor={"#ee2326"}
+                needleBaseColor={"#ee2326"}
+                animate={false}
+              />
+              <span className="engineLabel">Intake Manifold</span>
+              <span className="engineValue">100 KPA</span>
+            </div>
+          </div>
+          <div className="wrapper">
+            <div className="gauge-container">
+              <GaugeChart
+                className="defaultGauge"
+                nrOfLevels={2}
+                arcsLength={[0.85, 0.15]}
+                arcWidth={0.2}
+                cornerRadius={0}
+                colors={["#038e42", "#ee2326"]}
+                percent={this.state.maf}
+                arcPadding={-0.01}
+                needleColor={"#ee2326"}
+                needleBaseColor={"#ee2326"}
+                animate={false}
+              />
+              <span className="engineLabel">Air Flow Rate</span>
+              <span className="engineValue">400 G/S</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}

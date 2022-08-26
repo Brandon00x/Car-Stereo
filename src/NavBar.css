@@ -1,0 +1,118 @@
+/* Global and Navbar */
+.navbar {
+  background-image: linear-gradient(-90deg, rgb(0 0 0), rgb(0, 44, 89));
+  color: white;
+}
+
+.navbarContainer {
+  display: flex;
+}
+
+/* Left Side */
+
+.navbarContainerLeft {
+  display: flex;
+  width: 450px;
+  height: 30px;
+  padding-left: 10px;
+}
+
+.navSongInfo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-top: -4px;
+  color: white;
+  height: 37px;
+  width: max-content;
+  max-width: 210px;
+}
+
+.navSongTitle {
+  overflow: hidden;
+  height: 20px;
+  margin: 0px;
+  padding-left: 10px;
+}
+
+.navArtistName {
+  overflow: hidden;
+  height: 20px;
+  margin: 0px;
+  padding-left: 12px;
+}
+
+.navlogo {
+  margin-right: -6rem;
+}
+
+.navbarPlayerControls {
+  display: flex;
+  color: white;
+}
+
+.naviconLeftControls {
+  margin-left: 10px;
+  margin-bottom: -20px;
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+#volSliderNavBar {
+  background-color: white;
+  position: relative;
+  width: 135px;
+  height: 5px;
+  top: 41%;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  border-radius: 0.25rem;
+}
+
+#volSliderNavBar::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 4px;
+  background-color: rgb(5, 55, 221);
+  cursor: pointer;
+}
+
+/* Right Side */
+
+.navbarContainerRight {
+  display: flex;
+  width: 300px;
+  height: 23px;
+  justify-content: flex-end;
+  padding-right: 123px;
+}
+
+.naviconright {
+  padding-left: 15px;
+  align-self: center;
+  font-size: 25px;
+}
+
+.navtemp {
+}
+
+.navGoogleAssistant {
+  height: 25px;
+  width: 28px;
+}
+
+#navtemp {
+  margin-bottom: -20px !important;
+  margin-top: -7px;
+  font-size: 28px;
+}
+
+.navdate {
+  position: absolute;
+  text-align: right;
+  right: 6px;
+  top: 1%;
+}

@@ -1,0 +1,84 @@
+/* Dashboard */
+body {
+  background-color: black !important;
+  max-width: 800px;
+  max-height: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+  max-width: 800px;
+  max-height: 480px;
+  text-align: center;
+}
+
+.bg-dark {
+  background-color: black !important;
+}
+
+.dashrow {
+  padding-top: 35px;
+}
+
+.musicdash {
+  color: white;
+  text-decoration: none;
+}
+
+.youtubedash {
+  color: white;
+  text-decoration: none;
+}
+
+.weatherdash {
+  color: white;
+  text-decoration: none;
+}
+
+.phonedash {
+  color: white;
+  text-decoration: none;
+}
+
+.weathericon {
+  filter: brightness(2);
+}
+
+.bluetoothmusicdash {
+  color: white;
+  text-decoration: none;
+}
+
+.messagesdash {
+  color: white;
+  text-decoration: none;
+}
+
+.emaildash {
+  color: white;
+  text-decoration: none;
+}
+
+.emailicon {
+  filter: hue-rotate(302deg);
+}
+
+.navigationdash {
+  color: white;
+  text-decoration: none;
+}
+
+.tunerdash {
+  color: white;
+  text-decoration: none;
+}
+
+.settingsdash {
+  color: white;
+  text-decoration: none;
+}

@@ -1,0 +1,7 @@
+[Service]
+Environment=NODE_PORT=3000
+Type=simple
+User=www-data
+Restart=on-failure
+WorkingDirectory=/home/pi/carplay/client/
+ExecStart=npm start

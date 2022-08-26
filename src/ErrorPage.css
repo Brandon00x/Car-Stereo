@@ -1,0 +1,21 @@
+.errorpage {
+  display: flex;
+  flex-direction: column;
+}
+
+.errorpageimage {
+  position: absolute;
+  width: 800px;
+  height: 432px;
+  object-fit: cover;
+}
+
+.errorContent {
+  padding-top: 310px;
+  padding-left: 10px;
+}
+
+.errorText {
+  color: white;
+  position: relative;
+}
